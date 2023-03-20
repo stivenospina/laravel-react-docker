@@ -1,0 +1,24 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Users_table;
+class TestUsersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        //
+        $users_table = new \App\Models\Users_table([
+            'id' => 1,
+            'name' => "test",
+            'email'=> "test@gftd.works",
+            'password' => "test",
+         ]);
+         $users_table->save();
+    }
+}

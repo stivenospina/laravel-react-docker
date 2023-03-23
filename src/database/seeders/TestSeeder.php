@@ -15,10 +15,17 @@ class TestSeeder extends Seeder
         //
         $messages = new \App\Models\Messages(
             [
-                'id'=> 1,
-                'body'=> "Hello",
-                'user_id' => 1,
 
+                'body'=> "Hello",
+                'user_id'=> "1",
+
+            ]
+            );
+            $messages->save();
+        $messages = new \App\Models\Messages(
+            [
+                'body' => "World",
+                'user_id' => "1",
             ]
             );
             $messages->save();

@@ -14,9 +14,9 @@ class TestUsersTableSeeder extends Seeder
     {
         //
         $users_table = new \App\Models\Users_table([
-            'id' => 1,
+
             'name' => "test",
-            'email'=> "test@gftd.works",
+            'email'=> "test12@gftd.works",
             'password' => "test",
          ]);
          $users_table->save();

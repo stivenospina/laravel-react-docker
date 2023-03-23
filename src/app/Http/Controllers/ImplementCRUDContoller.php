@@ -15,10 +15,16 @@ class ImplementCRUDContoller extends Controller
     public function index()
     {
         //
-        $messages_list = Users_table::all();
+        $messages_list = Users_table::find(1)->message()->paginate(10);
 
-        return response()->json($messages_list,200);
-
+        /*
+	return response()->json([
+		'name' => 'atsushi',
+		'email' => 'test@gftd.works',
+	],200);
+	*/
+	return response()->json(
+		$messages_list, 200);
     }
 
     /**

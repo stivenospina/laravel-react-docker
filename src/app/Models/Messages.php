@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Messages extends Model
 {
-    protected $table = 'messages';
 
+    protected $table = "messages";
+    protected $primaryKey ='id';
     public function user_table()
     {
-        return $this->belongsTo(Users_table::class);
+        return $this->belongsTo(Users_table::class, 'user_id');
     }
 }

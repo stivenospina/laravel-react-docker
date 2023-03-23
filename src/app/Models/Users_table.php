@@ -9,11 +9,11 @@ class Users_table extends Model
 {
 
 
-    protected $table = 'users_table';
+    protected $table = "users_table";
 
-    public function messages()
+    public function message()
     {
-        return $this->hasMany(Messages::class);
+        return $this->hasMany(Messages::class, 'user_id');
     }
 
 }

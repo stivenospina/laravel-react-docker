@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const TEST = (props) => {
+const Login= (props) => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -110,4 +110,4 @@ const TEST = (props) => {
   );
 };
 
-export default TEST;
+export default Login;

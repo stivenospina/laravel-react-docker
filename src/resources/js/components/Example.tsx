@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Form, Route, Routes} from 'react-router-dom';
-import TEST from './Test';
+import Login from './Login';
 import Register from './Register';
 import Show from './Show';
 import Index from './Index';
@@ -74,7 +74,7 @@ const Example  = () => {
             </div>
         </div>
         <div>
-       <a href="/test">ログイン</a>
+       <a href="/login">ログイン</a>
        </div>
        <div>
        <a href="/index">全文表示</a>
@@ -118,7 +118,7 @@ const Example  = () => {
 
         <Routes>
 
-        <Route path="/test" element={<TEST isEnabled={isEnabled}/> } />
+        <Route path="/login" element={<Login isEnabled={isEnabled}/> } />
         <Route path="/show" element={<Show />} />
         <Route path="/index" element={<Index />} />
         <Route path="/store" element={<Store />} />
@@ -144,7 +144,7 @@ const Example  = () => {
             </div>
         </div>
         <div>
-       <a href="/test">ログイン</a>
+       <a href="/login">ログイン</a>
        </div>
 
 
@@ -158,7 +158,7 @@ const Example  = () => {
 
         <Routes>
 
-        <Route path="/test" element={<TEST isEnabled={isEnabled}/>} />
+        <Route path="/login" element={<Login isEnabled={isEnabled}/>} />
         <Route path="/register" element={<Register />} />
         </Routes>
 

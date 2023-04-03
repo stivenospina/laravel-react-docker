@@ -66,9 +66,9 @@ const Example  = () => {
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
-                        <div className="card-header">Example Component</div>
+                        <div className="card-header"><h1>掲示板風メモアプリ</h1></div>
 
-                        <div className="card-body">I'm an example component!</div>
+                        <div className="card-body">メモをとろうぜ！！</div>
                     </div>
                 </div>
             </div>
@@ -136,9 +136,9 @@ const Example  = () => {
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
-                        <div className="card-header">Example Component</div>
+                        <div className="card-header"><h1>掲示板風メモアプリ</h1></div>
 
-                        <div className="card-body">I'm an example component!</div>
+                        <div className="card-body">メモをとろうぜ！！</div>
                     </div>
                 </div>
             </div>

@@ -56,19 +56,19 @@ function Store() {
             <div className="col-md-6 col-lg-6 mx-auto">
                 <div className="card">
                     <div className="card-header">
-                        <h4>Store</h4>
+                        <h4>投稿</h4>
                     </div>
                     <div className="card-body">
                         <form onSubmit={registerSubmit}>
 
                             <div className="form-group mb-3">
-                                <label>Text</label>
+                                <label>投稿内容</label>
                                 <input type="text" name="body" onChange={handleInput} value={registerInput.body} className="form-control" />
 
                             </div>
 
                             <div className="form-group mb-3">
-                                <button type="submit" className="btn btn-primary">Register</button>
+                                <button type="submit" className="btn btn-primary">投稿ボタン</button>
                             </div>
                         </form>
                     </div>

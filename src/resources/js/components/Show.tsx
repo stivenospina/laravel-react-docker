@@ -20,6 +20,8 @@ const Show = () => {
     const url = "http://localhost/api/show";
     const [posts, setPost] = useState<Task[]>([]);
     const [state, setState] = useState(null);
+    const [pages, setPages] = useState();
+
     const isEnabled = (isState) =>
     {
         const value = isState;
@@ -36,10 +38,16 @@ const Show = () => {
 
     }
 
+    const getDataTest = (value)=>{
+        axios.get('api/test?page=' + value).then(response => {
+            setPost(response.data.data);
+        });
+    }
+
     useEffect ( () => {
         getData();
 
-    },[]
+    },[pages]
 
     )
 
@@ -52,6 +60,8 @@ const Show = () => {
             setPost(response.data.data);
 
             console.log(response.data.data);
+            setPages(response.data.last_page);
+            console.log(pages);
 
         })
         .catch((error) =>{
@@ -92,7 +102,17 @@ const Show = () => {
                 </div>
             </div>
         </div>
-
+        <div>
+        {
+            (function () {
+                const list = [];
+                for (let i = 1; i <= pages; i++) {
+                  list.push(<span onClick={() => getDataTest(i)}>   {i}   </span>);
+                }
+                return <div> {list} </div>;
+              }())
+            }
+        </div>
 
 
             <table className="table_css" border="1" width="80%">

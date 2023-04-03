@@ -15,7 +15,7 @@ class ImplementCRUDController extends Controller
     public function index()
     {
         //
-        $messages_list = Messages::orderBy('created_at','desc')->paginate(50);
+        $messages_list = Messages::orderBy('created_at','desc')->paginate(5);
         /*
 	return response()->json([
 		'name' => 'atsushi',
@@ -59,7 +59,7 @@ class ImplementCRUDController extends Controller
         //
 
 
-        $messages_list = User::find(auth()->user()->id)->message()->orderBy('created_at','desc')->paginate(50);
+        $messages_list = User::find(auth()->user()->id)->message()->orderBy('created_at','desc')->paginate(5);
 
 
         return response()->json(

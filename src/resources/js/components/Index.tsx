@@ -107,7 +107,7 @@ const Index  = () => {
             (function () {
                 const list = [];
                 for (let i = 1; i <= pages; i++) {
-                  list.push(<span onClick={() => getDataTest(i)}>   {i}   </span>);
+                  list.push(<span onClick={() => getDataTest(i)}><strong>   {i}   </strong></span>);
                 }
                 return <div>{list} </div>;
               }())

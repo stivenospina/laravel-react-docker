@@ -12,6 +12,6 @@ class Messages extends Model
     protected $primaryKey ='id';
     public function user_table()
     {
-        return $this->belongsTo(Users_table::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

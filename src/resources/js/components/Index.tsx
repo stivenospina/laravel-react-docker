@@ -4,8 +4,6 @@ import {BrowserRouter, Form, Route, Routes} from 'react-router-dom';
 import TEST from './Test';
 import Register from './Register';
 import Show from './Show';
-import Index from './Index';
-import Store from './Store';
 import axios from 'axios';
 import '../../css/app.css';
 import { useEffect, useState } from 'react';
@@ -16,7 +14,7 @@ type Task = {
     created_at : Date
     updated_at : Date
 }
-const Example  = () => {
+const Index  = () => {
 
     const url = "http://localhost/api/test";
     const [posts, setPost] = useState<Task[]>([]);
@@ -53,7 +51,7 @@ const Example  = () => {
     };
 
     useEffect (() => {
-
+        getData();
 
     },[]);
 
@@ -74,60 +72,38 @@ const Example  = () => {
             </div>
         </div>
         <div>
-       <a href="/test">ログイン</a>
-       </div>
-       <div>
-       <a href="/index">全文表示</a>
 
         </div>
-        <div>
-            <a href="/show"> ユーザーによる表示</a>
-        </div>
-        <div>
-            <a href="/store"> 投稿</a>
-        </div>
 
+
+        <table className="table_css" border="1" width="80%">
+                <thead>
+                <th >id </th>
+                <th >User id</th>
+                <th >Text</th>
+                <th >create_at</th>
+                </thead>
+                <tbody>
 
                 { posts.map(task => (
-               <table className="table_css" border="1" width="80%">
-                <thead>
-                    <th > id </th>
-                    <th > User id</th>
-                    <th > Text</th>
-                    <th > created_at</th>
-                </thead>
 
-                <tdoby>
                 <tr>
                 <td>{task.id}</td>
                 <td>{task.user_id}</td>
                 <td>{task.body}</td>
                 <td>{task.created_at}</td>
                 </tr>
-                </tdoby>
-                </table>
+
                 ))}
+        </tbody>
+        </table>
 
 
 
 
 
 
-
-
-
-        <Routes>
-
-        <Route path="/test" element={<TEST isEnabled={isEnabled}/> } />
-        <Route path="/show" element={<Show />} />
-        <Route path="/index" element={<Index />} />
-        <Route path="/store" element={<Store />} />
-         </Routes>
-
-
-
-        </>
-
+           </>
     );}
     else{
     return (
@@ -143,24 +119,11 @@ const Example  = () => {
                 </div>
             </div>
         </div>
-        <div>
-       <a href="/test">ログイン</a>
-       </div>
-
-
-       <div>
-        <a href="/register">ユーザー登録</a>
-       </div>
 
 
 
 
 
-        <Routes>
-
-        <Route path="/test" element={<TEST isEnabled={isEnabled}/>} />
-        <Route path="/register" element={<Register />} />
-        </Routes>
 
 
 
@@ -169,17 +132,5 @@ const Example  = () => {
     );}
 }
 
-export default Example;
+export default Index;
 
-if (document.getElementById('app')) {
-    const Index = ReactDOM.createRoot(document.getElementById("app"));
-
-    Index.render(
-
-            <BrowserRouter>
-            <Example />
-            </BrowserRouter>
-
-
-    )
-}

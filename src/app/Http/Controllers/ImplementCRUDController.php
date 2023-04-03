@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Messages;
-use App\Models\Users_table;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-
-class ImplementCRUDContoller extends Controller
+class ImplementCRUDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class ImplementCRUDContoller extends Controller
     public function index()
     {
         //
-        $messages_list = Users_table::find(1)->message()->paginate(10);
-
+        $messages_list = Messages::orderBy('id')->paginate(50);
         /*
 	return response()->json([
 		'name' => 'atsushi',
@@ -24,7 +23,8 @@ class ImplementCRUDContoller extends Controller
 	],200);
 	*/
 	return response()->json(
-		$messages_list, 200);
+		$messages_list, 200
+    );
     }
 
     /**
@@ -33,6 +33,7 @@ class ImplementCRUDContoller extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -41,14 +42,30 @@ class ImplementCRUDContoller extends Controller
     public function store(Request $request)
     {
         //
+         $store = new \App\Models\Messages;
+         $store->body = $request->body;
+         $store->user_id = auth()->user()->id;
+         $store->save();
+         return response()->json($store,201);
+
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         //
+
+
+        $messages_list = User::find(auth()->user()->id)->message()->paginate(50);
+
+
+        return response()->json(
+            $messages_list, 200
+        );
+
     }
 
     /**
@@ -67,11 +84,23 @@ class ImplementCRUDContoller extends Controller
         //
     }
 
+    public function delete(Request $request)
+    {
+        $post =  Messages::find($request->id);
+
+        $post->delete();
+
+        $posts = Messages::all();
+        return $posts;
+
+
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
         //
+
     }
 }

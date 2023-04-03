@@ -32,4 +32,5 @@ Route::get('{any}', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/test', [App\Http\Controllers\ImplementCRUDContoller::class, 'index']);
+Route::get('/test', [App\Http\Controllers\ImplementCRUDController::class, 'index'])->name('login');
+//Route::get('/show', [App\Http\Controllers\ImplementCRUDController::class, 'show']);

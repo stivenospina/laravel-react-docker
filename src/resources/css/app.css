@@ -1,0 +1,6 @@
+.table_css td{
+   word-break: break-word;
+}
+.table_css {
+    table-layout: fixed;
+}

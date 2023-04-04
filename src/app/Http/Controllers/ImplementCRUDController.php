@@ -15,8 +15,15 @@ class ImplementCRUDController extends Controller
     public function index()
     {
         //
-        $messages_list = Messages::orderBy('created_at','desc')->paginate(5);
         /*
+        $messages_list = Messages::orderBy('created_at','desc')->paginate(5);
+        */
+        $messages_list = User::with(['message' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->paginate(3);
+
+        /*
+
 	return response()->json([
 		'name' => 'atsushi',
 		'email' => 'test@gftd.works',

@@ -47,7 +47,7 @@ const Index  = () => {
           await axios
           .get(url, { params: {page : val} })
           .then((res) => {
-             setPost(res.data.data);
+             setPost(res.data.message);
 
           })
           .catch((error)=> {
@@ -57,6 +57,7 @@ const Index  = () => {
     const getDataTest = (value)=>{
         axios.get('api/index?page=' + value).then(response => {
             setPost(response.data.data);
+            console.log(response.data.data);
         });
     }
 
@@ -103,6 +104,7 @@ const Index  = () => {
         <div>
         </div>
         <div>
+
             {
             (function () {
                 const list = [];
@@ -112,6 +114,7 @@ const Index  = () => {
                 return <div>{list} </div>;
               }())
             }
+
         </div>
         <table className="table_css" border="1" width="80%">
                 <thead>
@@ -119,21 +122,34 @@ const Index  = () => {
                 <th >User id</th>
                 <th >Text</th>
                 <th >create_at</th>
+                <th> name</th>
                 </thead>
                 <tbody>
+                {
+                    posts.map((item)=> (
 
-                { posts.map(task => (
+                        <>
+                            {
+                                item.message.map((items)=>(
+                                    <tr>
+                                    <td>{items.id}</td>
+                                    <td>{items.user_id}</td>
+                                    <td>{items.body}</td>
+                                    <td>{items.created_at}</td>
+                                    <td>{item.name}</td>
+                                    </tr>
+                                ))
+                            }
 
-                <tr>
-                <td>{task.id}</td>
-                <td>{task.user_id}</td>
-                <td>{task.body}</td>
-                <td>{task.created_at}</td>
-                </tr>
 
-                ))}
+                            </>
+                    ))
+                }
+           
+
         </tbody>
         </table>
+
 
 
 

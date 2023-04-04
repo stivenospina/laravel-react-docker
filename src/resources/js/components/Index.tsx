@@ -21,7 +21,7 @@ type Page = {
 
 const Index  = () => {
 
-    const url = "http://localhost/api/test";
+    const url = "http://localhost/api/index";
     const [posts, setPost] = useState<Task[]>([]);
     const [state, setState] = useState(null);
     const [pages, setPages] = useState();
@@ -55,7 +55,7 @@ const Index  = () => {
           })
     }
     const getDataTest = (value)=>{
-        axios.get('api/test?page=' + value).then(response => {
+        axios.get('api/index?page=' + value).then(response => {
             setPost(response.data.data);
         });
     }

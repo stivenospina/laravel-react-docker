@@ -40,6 +40,7 @@ const Show = () => {
 
     const getDataTest = (value)=>{
         axios.get('api/show?page=' + value).then(response => {
+            console.log(response.data.data);
             setPost(response.data.data);
         });
     }
@@ -53,13 +54,14 @@ const Show = () => {
 
     const getData = async() => {
         await axios
-        .get(url + "/1")
+        .get(url)
 
         .then((response) => {
 
             setPost(response.data.data);
 
             console.log(response.data.data);
+            console.log(response.data);
             setPages(response.data.last_page);
             console.log(pages);
 

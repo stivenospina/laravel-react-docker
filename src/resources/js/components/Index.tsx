@@ -83,7 +83,7 @@ const Index  = () => {
     useEffect (() => {
         getData();
 
-    },[]);
+    },[pages]);
 
     if(sessionStorage.getItem('key')==="true")
     {

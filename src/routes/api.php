@@ -28,7 +28,7 @@ Route::get('logout', [AuthController::class, 'logout']);
 Route::middleware('auth:sanctum')->group(function() {
     Route::post('store', 'App\Http\Controllers\ImplementCRUDController@store');
     Route::post('create', 'App\Http\Controllers\ImplementCRUDController@create');
-    Route::get('show/{id}', 'App\Http\Controllers\ImplementCRUDController@show');
+    Route::get('show', 'App\Http\Controllers\ImplementCRUDController@show');
     Route::get('index', 'App\Http\Controllers\ImplementCRUDController@index');
     Route::post('delete', 'App\Http\Controllers\ImplementCRUDController@delete');
 

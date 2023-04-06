@@ -18,9 +18,10 @@ class ImplementCRUDController extends Controller
         /*
         $messages_list = Messages::orderBy('created_at','desc')->paginate(5);
         */
+
         $messages_list = User::with(['message' => function ($query) {
             $query->orderBy('created_at', 'desc');
-        }])->paginate(3);
+        }])->paginate(5);
 
         /*
 
@@ -61,12 +62,12 @@ class ImplementCRUDController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
         //
 
 
-        $messages_list = User::find(auth()->user()->id)->message()->orderBy('created_at','desc')->paginate(10);
+        $messages_list = User::find(auth()->user()->id)->message()->orderBy('created_at','desc')->paginate(5);
 
 
         return response()->json(

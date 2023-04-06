@@ -66,7 +66,7 @@ class ImplementCRUDController extends Controller
         //
 
 
-        $messages_list = User::find(auth()->user()->id)->message()->orderBy('created_at','desc')->paginate(5);
+        $messages_list = User::find(auth()->user()->id)->message()->orderBy('created_at','desc')->paginate(10);
 
 
         return response()->json(

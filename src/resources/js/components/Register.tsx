@@ -32,15 +32,16 @@ function Register() {
         let value = false;
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.post('/api/register', data).then(res => {
-                if(res.status === 200){
+                if(res.data.status === 200){
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
-                    console.log(res);
+                    console.log(res.data.status);
                     alert('登録完了');
 
                 } else {
                     setRegister({...registerInput, error_list: res.data.validation_errors});
-                    console.log(res);
+
+                    alert('重複のため登録不可');
                 }
 
             }

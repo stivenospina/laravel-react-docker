@@ -39,7 +39,7 @@ const Show = () => {
     }
 
     const getDataTest = (value)=>{
-        axios.get('api/test?page=' + value).then(response => {
+        axios.get('api/show?page=' + value).then(response => {
             setPost(response.data.data);
         });
     }
@@ -53,7 +53,7 @@ const Show = () => {
 
     const getData = async() => {
         await axios
-        .get(url+ "/1")
+        .get(url + "/1")
 
         .then((response) => {
 

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Login= (props) => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [propsValue , setProps] = useState("");
+  const navigate = useNavigate();
   // ブラウザリロード時にログイン済みか判定
   useEffect(() => {
     getUser();
@@ -38,9 +40,11 @@ const Login= (props) => {
           console.log('[login]ログイン成功');
           setUser(res.data.user);
           props.isEnabled(true);
+          alert('[login]ログイン成功');
         } else {
           console.log(res.data.message);
           console.log('[login]ログイン失敗');
+          alert('[login]失敗');
         }
       })
       .catch(err => {
@@ -58,7 +62,7 @@ const Login= (props) => {
       .then(res => {
         setUser(null);
         props.isEnabled(false);
-
+        window.location.href="http://localhost";
 
       })
       .catch(err => {

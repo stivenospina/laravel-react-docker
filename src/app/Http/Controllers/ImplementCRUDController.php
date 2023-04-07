@@ -21,7 +21,7 @@ class ImplementCRUDController extends Controller
 
         $messages_list = User::with(['message' => function ($query) {
             $query->orderBy('created_at', 'desc');
-        }])->paginate(2);
+        }])->paginate(1);
 
         /*
 
